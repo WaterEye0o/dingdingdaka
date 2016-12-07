@@ -3,6 +3,8 @@ package com.dingdingdaka.wuhuabin.dingdingdaka;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -19,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.buttonClickListener();
         try {
             process = Runtime.getRuntime().exec("/system/xbin/su"); /*这里可能需要修改su
 
@@ -45,4 +49,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }// get the root privileges
     }
+
+    void buttonClickListener(){
+        Button buttonOne = (Button) findViewById(R.id.clockIn);
+        buttonOne.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Log.e("测试","试试");
+            }
+        });
+    }
+
 }
